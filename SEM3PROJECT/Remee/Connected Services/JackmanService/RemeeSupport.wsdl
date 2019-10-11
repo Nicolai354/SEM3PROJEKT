@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RemeeSupport" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IRemeeSupport_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Jackman/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Jackman/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Jackman/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Jackman.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRemeeSupport_CaseEdit_InputMessage">
+    <wsdl:part name="parameters" element="tns:CaseEdit" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_CaseEdit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CaseEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetCases_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCases" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetCases_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetCasesForSupporter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasesForSupporter" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetCasesForSupporter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasesForSupporterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_CaseCreate_InputMessage">
+    <wsdl:part name="parameters" element="tns:CaseCreate" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_CaseCreate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CaseCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetCase_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCase" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetCase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_CaseTake_InputMessage">
+    <wsdl:part name="parameters" element="tns:CaseTake" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_CaseTake_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CaseTakeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetSubcategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubcategories" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetSubcategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubcategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComments" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_CreateComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateComment" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_CreateComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetStatuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatuses" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetStatuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_CaseChangeStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:CaseChangeStatus" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_CaseChangeStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CaseChangeStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetSupporters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupporters" />
+  </wsdl:message>
+  <wsdl:message name="IRemeeSupport_GetSupporters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupportersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRemeeSupport">
+    <wsdl:operation name="CaseEdit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/CaseEdit" message="tns:IRemeeSupport_CaseEdit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/CaseEditResponse" message="tns:IRemeeSupport_CaseEdit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCases">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/GetCases" message="tns:IRemeeSupport_GetCases_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/GetCasesResponse" message="tns:IRemeeSupport_GetCases_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasesForSupporter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/GetCasesForSupporter" message="tns:IRemeeSupport_GetCasesForSupporter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/GetCasesForSupporterResponse" message="tns:IRemeeSupport_GetCasesForSupporter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseCreate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/CaseCreate" message="tns:IRemeeSupport_CaseCreate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/CaseCreateResponse" message="tns:IRemeeSupport_CaseCreate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/GetCase" message="tns:IRemeeSupport_GetCase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/GetCaseResponse" message="tns:IRemeeSupport_GetCase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseTake">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/CaseTake" message="tns:IRemeeSupport_CaseTake_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/CaseTakeResponse" message="tns:IRemeeSupport_CaseTake_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/GetCategories" message="tns:IRemeeSupport_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/GetCategoriesResponse" message="tns:IRemeeSupport_GetCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubcategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/GetSubcategories" message="tns:IRemeeSupport_GetSubcategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/GetSubcategoriesResponse" message="tns:IRemeeSupport_GetSubcategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/GetComments" message="tns:IRemeeSupport_GetComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/GetCommentsResponse" message="tns:IRemeeSupport_GetComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/CreateComment" message="tns:IRemeeSupport_CreateComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/CreateCommentResponse" message="tns:IRemeeSupport_CreateComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatuses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/GetStatuses" message="tns:IRemeeSupport_GetStatuses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/GetStatusesResponse" message="tns:IRemeeSupport_GetStatuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseChangeStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/CaseChangeStatus" message="tns:IRemeeSupport_CaseChangeStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/CaseChangeStatusResponse" message="tns:IRemeeSupport_CaseChangeStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupporters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRemeeSupport/GetSupporters" message="tns:IRemeeSupport_GetSupporters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRemeeSupport/GetSupportersResponse" message="tns:IRemeeSupport_GetSupporters_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IRemeeSupport" type="tns:IRemeeSupport">
+    <wsp:PolicyReference URI="#NetTcpBinding_IRemeeSupport_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CaseEdit">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/CaseEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCases">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/GetCases" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasesForSupporter">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/GetCasesForSupporter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CaseCreate">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/CaseCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCase">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/GetCase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CaseTake">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/CaseTake" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/GetCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubcategories">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/GetSubcategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComments">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/GetComments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateComment">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/CreateComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatuses">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/GetStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CaseChangeStatus">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/CaseChangeStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupporters">
+      <soap12:operation soapAction="http://tempuri.org/IRemeeSupport/GetSupporters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RemeeSupport">
+    <wsdl:port name="NetTcpBinding_IRemeeSupport" binding="tns:NetTcpBinding_IRemeeSupport">
+      <soap12:address location="net.tcp://localhost:8734/Design_Time_Addresses/Jackman/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8734/Design_Time_Addresses/Jackman/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Sigvardt.JackmanService.Comment>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Person.Name)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.Name)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.TextBox("Text", "", new { @placeholder = "Ny kommentar...", @class = "form-control" })
+            <input type="submit" value="Opret" class="btn btn-default" />
+        </div>
+    </div>
+}

@@ -1,0 +1,30 @@
+﻿<Window x:Class="Remee.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Remee"
+        mc:Ignorable="d"
+        Title="Remee Support System" MinHeight="350" MinWidth="650" Height="450" Width="800">
+    <Grid>
+        <DockPanel HorizontalAlignment="Stretch" LastChildFill="False" VerticalAlignment="Stretch">
+            <Menu VerticalAlignment="Stretch" DockPanel.Dock="Top">
+                <MenuItem Header="Opret sag" Padding="10" FontWeight="Bold" Click="mnuCaseCreate_Click" />
+                <MenuItem Header="Sager" Padding="10" FontWeight="Bold" Click="mnuCaseShowAll_Click" />
+                <MenuItem Header="Søg" Padding="10" FontWeight="Bold"/>
+                <MenuItem Header="Mine sager" Padding="10" FontWeight="Bold" Click="MenuItem_Click"/>
+                <MenuItem Header="Rapporter" Padding="10" FontWeight="Bold"/>
+                <MenuItem Header="Kategorier" Padding="10" FontWeight="Bold"/>
+            </Menu>
+            <StatusBar DockPanel.Dock="Bottom">
+                <Label x:Name="lblStatus">Test</Label>
+                <ComboBox x:Name="cmbSupporter" 
+                          HorizontalAlignment="Right" 
+                          SelectionChanged="CmbSupporter_SelectionChanged"
+                          DisplayMemberPath="Name"
+                          ></ComboBox>
+            </StatusBar>
+            <Frame x:Name="Main" NavigationUIVisibility="Hidden" DockPanel.Dock="Top" HorizontalAlignment="Stretch" />
+        </DockPanel>
+    </Grid>
+</Window>

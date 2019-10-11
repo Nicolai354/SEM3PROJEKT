@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Jackman.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Jackman.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Case">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:Category" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:Customer" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="OperatingSystem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Priority" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:Status" />
+      <xs:element minOccurs="0" name="Subcategory" nillable="true" type="tns:Subcategory" />
+      <xs:element minOccurs="0" name="Supporter" nillable="true" type="tns:Supporter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Case" nillable="true" type="tns:Case" />
+  <xs:complexType name="Category">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subcategories" nillable="true" type="tns:ArrayOfSubcategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Category" nillable="true" type="tns:Category" />
+  <xs:complexType name="ArrayOfSubcategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Subcategory" nillable="true" type="tns:Subcategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubcategory" nillable="true" type="tns:ArrayOfSubcategory" />
+  <xs:complexType name="Subcategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Subcategory" nillable="true" type="tns:Subcategory" />
+  <xs:complexType name="Customer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Person">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Company" nillable="true" type="tns:Company" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Mail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
+  <xs:complexType name="Supporter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Person">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Supporter" nillable="true" type="tns:Supporter" />
+  <xs:complexType name="Company">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Mail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Company" nillable="true" type="tns:Company" />
+  <xs:complexType name="Status">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Status" nillable="true" type="tns:Status" />
+  <xs:complexType name="ArrayOfCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategory" nillable="true" type="tns:ArrayOfCategory" />
+  <xs:complexType name="ArrayOfCase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Case" nillable="true" type="tns:Case" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCase" nillable="true" type="tns:ArrayOfCase" />
+  <xs:complexType name="ArrayOfComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Comment" nillable="true" type="tns:Comment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComment" nillable="true" type="tns:ArrayOfComment" />
+  <xs:complexType name="Comment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Person" nillable="true" type="tns:Person" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Comment" nillable="true" type="tns:Comment" />
+</xs:schema>

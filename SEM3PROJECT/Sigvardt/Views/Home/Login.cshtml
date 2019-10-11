@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Log ind";
+}
+
+<h2>Log ind</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    if (!String.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        @Html.Label("Error", (string)ViewBag.ErrorMessage, htmlAttributes: new { @class = "text-danger" })
+    }
+
+    <div class="form-group">
+        @Html.Label("UserName", "E-mail", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.Editor("UserName", "", new { htmlAttributes = new { @placeholder = "E-mail", @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Password", "Password", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.Editor("Password", "", new { htmlAttributes = new { @type = "password", @placeholder = "Password", @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Log ind" class="btn btn-default" />
+        </div>
+    </div>
+
+    <table>
+        <tr>
+            <td>pedersmail@yahoo.dk</td>
+            <td>password</td>
+        </tr>
+        <tr>
+            <td>bjarkesmail@yahoo.dk</td>
+            <td>password</td>
+        </tr>
+        <tr>
+            <td>clausensmail@yahoo.dk</td>
+            <td>password</td>
+        </tr>
+        <tr>
+            <td>d22k2306@fiin.dk</td>
+            <td>password</td>
+        </tr>
+        <tr>
+            <td>duvedhvem@ms.dk</td>
+            <td>password</td>
+        </tr>
+        <tr>
+            <td>jegerveddig@ucn.dk</td>
+            <td>password</td>
+        </tr>
+    </table>
+}

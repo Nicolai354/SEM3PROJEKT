@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="36636bf1-0490-4802-b814-63e1f66d8d2f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8735/Design_Time_Addresses/Jackman/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="b396049d-f360-4877-ad0a-197758d289b2" SourceId="1" SourceUrl="http://localhost:8735/Design_Time_Addresses/Jackman/?xsd=xsd1" />
+    <MetadataFile FileName="SigvardtService.wsdl" MetadataType="Wsdl" ID="c2804bb4-cc51-423b-b887-4d294cbf7645" SourceId="1" SourceUrl="http://localhost:8735/Design_Time_Addresses/Jackman/?wsdl" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="04b42a97-298f-4225-8c66-d92f2b6220a6" SourceId="1" SourceUrl="http://localhost:8735/Design_Time_Addresses/Jackman/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="a237e5ff-864a-4345-8af5-b9cfe4675e68" SourceId="1" SourceUrl="http://localhost:8735/Design_Time_Addresses/Jackman/?disco" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="138c3858-7883-43f9-9b01-765983e8f599" SourceId="1" SourceUrl="http://localhost:8735/Design_Time_Addresses/Jackman/?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

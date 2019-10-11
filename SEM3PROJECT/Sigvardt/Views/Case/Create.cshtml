@@ -1,0 +1,112 @@
+﻿@model Sigvardt.JackmanService.Case
+
+@{
+    ViewBag.Title = "Opret sag";
+    List<Sigvardt.JackmanService.Category> categories = ViewBag.Categories;
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Case</h4>
+    <hr />
+    @if (!String.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        @Html.Label("Error", (string)ViewBag.ErrorMessage, htmlAttributes: new { @class = "text-danger" })
+    }
+    <div class="form-group">
+        @Html.Label("Category", "Kategori", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Category",
+             categories.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name }),
+             new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Subcategory, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Subcategory,
+             new List<SelectListItem>() {
+                    new SelectListItem { Value = "0", Text = "Select" }
+             },
+             new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Priority, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Priority, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.OperatingSystem, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OperatingSystem, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script type="text/javascript">
+    var subcategoryId = @(Model.Subcategory?.Id ?? 0);
+
+    $(function () {
+        $('#Category').on("change", function () {
+            FillSubcategories();
+        });
+
+        FillSubcategories();
+    });
+
+    function FillSubcategories() {
+        var id = $('#Category').val();
+        AjaxCall('/Case/GetSubcategories/' + id, null, 'POST').done(function (response) {
+            $('#Subcategory').html('');
+            var options = '';
+            options += '<option value="0">Select</option>';
+            for (var i = 0; i < response.length; i++) {
+                options += '<option ' + (subcategoryId === response[i].Id ? 'selected' : '') + ' value="' + response[i].Id + '">' + response[i].Name + '</option>';
+            }
+            $('#Subcategory').append(options);
+        }).fail(function (error) {
+            alert(error.StatusText);
+        });
+    }
+
+    function AjaxCall(url, data, type) {
+        return $.ajax({
+            url: url,
+            type: type ? type : 'GET',
+            data: data,
+            contentType: 'application/json'
+        });
+    }
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

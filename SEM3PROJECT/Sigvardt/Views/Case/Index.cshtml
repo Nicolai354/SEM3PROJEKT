@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Sigvardt.JackmanService.Case>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Opret sag", "Create")
+</p>
+
+<form asp-controller="CaseController" asp-action="Index">
+    <p>
+        Søgefelt: <input type="text" name="filter">
+        <input type="submit" value="Søg" />
+    </p>
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Id", "Index",
+             new { sortOrder = ViewBag.IdSort })
+        </th>
+        <th>
+            @Html.ActionLink("CreatedDate", "Index",
+            new { sortOrder = ViewBag.CreatedDateSort })
+        </th>
+        <th>
+            @Html.ActionLink("Description", "Index",
+            new { sortOrder = ViewBag.DescriptionSort })
+        </th>
+        <th>
+            @Html.ActionLink("OperatingSystem", "Index",
+            new { sortOrder = ViewBag.OperatingSystemSort })
+        </th>
+        <th>
+            @Html.ActionLink("Priority", "Index",
+            new { sortOrder = ViewBag.PrioritySort })
+        </th>
+        <th>
+            @Html.ActionLink("Supporter", "Index",
+            new { sortOrder = ViewBag.SupporterSort })
+        </th>
+        <th>
+            @Html.ActionLink("Status", "Index",
+            new { sortOrder = ViewBag.StatusSort })
+        </th>
+        <th>
+            @Html.ActionLink("Category", "Index",
+            new { sortOrder = ViewBag.CategorySort })
+        </th>
+        <th>
+            @Html.ActionLink("Subcategory", "Index",
+            new { sortOrder = ViewBag.SubcategorySort })
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OperatingSystem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supporter.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subcategory.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Detaljer", "Details", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
